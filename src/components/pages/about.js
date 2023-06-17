@@ -13,6 +13,7 @@ import Button from "react-bootstrap/Button";
 import Footer from "../components/footer";
 import { createGlobalStyle } from "styled-components";
 import CountUp from "react-countup";
+import "../../assets/style.scss";
 
 const fadeInUp = keyframes`
   0% {
@@ -29,7 +30,7 @@ const fadeInUp = keyframes`
 
 const about = () => (
   <>
-    <section className="jumbotron no-bg bg-gray pb-0 mb-5">
+    <section className="jumbotron pb-5 mb-5 background_color">
       <Header></Header>
       <div className="container">
         <div className="row">
@@ -64,7 +65,7 @@ const about = () => (
     <div className="container">
       <div className="row">
         <div className="col-md-12">
-          <h6>why Choose us</h6>
+          <h6 className="pt-5">why Choose us</h6>
           <h1 className="fw-bolder w-75">
             We’re a global creative agency based in New York
           </h1>
@@ -89,16 +90,46 @@ const about = () => (
         <div className="container">
           <div className="row">
             <div className="col-md-3 py-5">
-              <CountUp end={12} /> + TOTAL YEARS IN BUSINESS
+              <div className="padding40 box-rounded mb30">
+                <div className="counter text-center">
+                  <p>
+                    <CountUp end={12} /> +
+                  </p>
+                </div>
+                <h5 className="text-center">TOTAL YEARS IN BUSINESS</h5>
+              </div>
             </div>
             <div className="col-md-3 py-5">
-              <CountUp end={300} /> + UNIQUE CLIENTS WE SERVE
+              <div className="padding40 box-rounded mb30">
+                <div className="counter text-center">
+                  <p>
+                    <CountUp end={300} /> +
+                  </p>
+                </div>
+                <h5 className="text-center">UNIQUE CLIENTS WE SERVE</h5>
+              </div>
             </div>
+
             <div className="col-md-3 py-5">
-              <CountUp end={450} /> + UNIQUE CLIENTS WE SERVE
+              <div className="padding40 box-rounded mb30">
+                <div className="counter text-center">
+                  <p>
+                    <CountUp end={405} /> +
+                  </p>
+                </div>
+                <h5 className="text-center">WORLD WIDE TOTAL BRANCH</h5>
+              </div>
             </div>
+
             <div className="col-md-3 py-5">
-              <CountUp end={105} /> + WORLD WIDE TOTAL BRANCH
+              <div className="padding40 box-rounded mb30">
+                <div className="counter text-center">
+                  <p>
+                    <CountUp end={105} /> +
+                  </p>
+                </div>
+                <h5 className="text-center">UNIQUE CLIENTS WE SERVE</h5>
+              </div>
             </div>
           </div>
         </div>

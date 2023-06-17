@@ -3,6 +3,7 @@ import Select from "react-select";
 import ColumnNew from "../components/ColumnNew";
 import Footer from "../components/footer";
 import { createGlobalStyle } from "styled-components";
+import ExploreData from "../components/ExploreData";
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -147,7 +148,7 @@ const explore = () => (
           </div>
         </div>
       </div>
-      <ColumnNew />
+      <ExploreData />
     </section>
 
     <Footer />

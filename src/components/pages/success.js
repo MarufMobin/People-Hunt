@@ -8,7 +8,7 @@ import Footer from "../components/footer";
 
 const success = () => (
   <div>
-    <section className="jumbotron no-bg bg-gray">
+    <section className="jumbotron pb-5 mb-5 background_color">
       <SliderMainZero />
     </section>
 
