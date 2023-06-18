@@ -84,9 +84,13 @@ const ExploreData = () => {
                   {userdatas?.address ? `Address: ${userdatas.address}` : ""}
                 </div>
                 <div>
-                  <button onClick={(e) => findPeople(userdatas?._id)}>
-                    find
-                  </button>
+                  {!userdatas?.success && (
+                    <div className="nft__item_action">
+                      <span onClick={(e) => findPeople(userdatas?._id)}>
+                        Find People
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="nft__item_like">
                   <i className="fa fa-heart"></i>
