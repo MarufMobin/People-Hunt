@@ -5,6 +5,7 @@ import CarouselCollection from "../components/CarouselCollection";
 import ColumnNew from "../components/ColumnNew";
 import AuthorList from "../components/authorList";
 import Footer from "../components/footer";
+import Success from "../components/Success";
 
 const success = () => (
   <div>
@@ -22,11 +23,7 @@ const success = () => (
         </div>
       </div>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <CarouselCollection />
-          </div>
-        </div>
+        <Success></Success>
       </div>
     </section>
 

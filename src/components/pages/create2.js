@@ -6,6 +6,7 @@ import Webcam from "react-webcam";
 import { useCallback, useRef } from "react"; // import useCallback
 import { render } from "react-dom";
 import { Navigate } from "react-router-dom";
+import { useNavigate } from "@reach/router";
 
 const GlobalStyles = createGlobalStyle`
   header#myHeader.navbar.sticky.white {
@@ -43,6 +44,7 @@ const GlobalStyles = createGlobalStyle`
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
 const Createpage = () => {
+  const navigate = useNavigate();
   // Image Controller
   const [serverImage, setServerImage] = useState("");
 
@@ -66,61 +68,6 @@ const Createpage = () => {
       reader.readAsDataURL(file);
     }
   };
-
-  // function handleFileInputChange(event) {
-  //   console.log(event);
-  //   const file = event.target?.files[0];
-  //   // console.log(flie);
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     console.log(reader);
-  //     reader.onloadend = function () {
-  //       const blob = new Blob([reader.result], { type: file.type });
-  //       // Use the 'blob' as needed (e.g., upload to a server, display in an <img> element, etc.)
-  //       console.log("Blob:", blob);
-  //     };
-
-  //     reader.readAsArrayBuffer(file);
-  //   }
-  // }
-
-  // const [imgData, setImgData] = useState({});
-
-  // const onChange = (e) => {
-  //   const files = e.target.files;
-  //   setImgData(files);
-  //   // convertToBase64(files);
-
-  //   console.log(files[0].name);
-  //   const filesArr = Array.prototype.slice.call(files);
-  //   document.getElementById("file_name").style.display = "none";
-  //   // setFiles([...files, ...filesArr]);
-  // };
-
-  // const handleShow = () => {
-  //   document.getElementById("tab_opt_1").classList.add("show");
-  //   document.getElementById("tab_opt_1").classList.remove("hide");
-  //   document.getElementById("tab_opt_2").classList.remove("show");
-  //   document.getElementById("btn1").classList.add("active");
-  //   document.getElementById("btn2").classList.remove("active");
-  //   document.getElementById("btn3").classList.remove("active");
-  // };
-
-  // const handleShow1 = () => {
-  //   document.getElementById("tab_opt_1").classList.add("hide");
-  //   document.getElementById("tab_opt_1").classList.remove("show");
-  //   document.getElementById("tab_opt_2").classList.add("show");
-  //   document.getElementById("btn1").classList.remove("active");
-  //   document.getElementById("btn2").classList.add("active");
-  //   document.getElementById("btn3").classList.remove("active");
-  // };
-
-  // const handleShow2 = () => {
-  //   document.getElementById("tab_opt_1").classList.add("show");
-  //   document.getElementById("btn1").classList.remove("active");
-  //   document.getElementById("btn2").classList.remove("active");
-  //   document.getElementById("btn3").classList.add("active");
-  // };
 
   const changeHandler = (e) => {
     const file = e.target.files[0];
@@ -173,10 +120,10 @@ const Createpage = () => {
   };
 
   // Input field data
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const [age, setAge] = useState("");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState("unknown");
+  const [number, setNumber] = useState("unknown");
+  const [age, setAge] = useState("unknown");
+  const [address, setAddress] = useState("unknown");
 
   //This is the server sending button
   const createUser = () => {
@@ -193,11 +140,16 @@ const Createpage = () => {
           address: address,
           age: age,
           number: number,
+          success: "",
           image: serverImage,
         }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          if (data) {
+            return navigate("/explore");
+          }
+        });
     } catch (err) {
       console.error(err.massage);
     }
